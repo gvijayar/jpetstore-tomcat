@@ -1,4 +1,6 @@
 
+#!/bin/sh
+
 echo " **  Invoking Custom Assemble Script"
 
 # Finds appropriate environment variable
