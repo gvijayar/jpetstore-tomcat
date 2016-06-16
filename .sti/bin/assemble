@@ -31,7 +31,11 @@ username=$(find_env "DB_USERNAME")
 database=$(find_env "DB_DATABASE")   
 url="jdbc:postgresql://$(find_env \"DB_HOST\"):$(find_env \"DB_PORT\")/$(find_env \"DB_DATABASE\")"
 
+echo $url
+
 datasources="$(generate_datasource $jndi $username $password $driver $url)\n\n"
+
+echo $datasources
 
 C=$(echo $datasources | sed 's/\//\\\//g')
 sed -i "/<\/Context>/ s/.*/${C}\n&/" $JWS_HOME/conf/context.xml
