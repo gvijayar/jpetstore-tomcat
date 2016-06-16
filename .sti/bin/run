@@ -23,32 +23,17 @@ function generate_datasource(){
   echo " <Resource name=\"$1\"\nusername=\"$2\"\npassword=\"$3\"\ndriverClassName=\"$4\"\nurl=\"$5\"\nauth=\"Container\"\ntype=\"javax.sql.DataSource\"\nmaxActive=\"20\"\nmaxIdle=\"5\"\nmaxWait=\"10000\" />"          
 }
 
-printenv
-
 # Get Env Variables and Generate Config
 driver="org.postgresql.Driver"
 jndi=$(find_env "DB_JNDI")  
-echo $jndi
 password=$(find_env "DB_PASSWORD")
-echo $password
 username=$(find_env "DB_USERNAME")
-echo $username
-database=$(find_env "DB_DATABASE") 
-echo $database
-host=$(find_env "DB_HOST") 
-echo $host
-port=$(find_env "DB_PORT") 
-echo $port
-
-url="jdbc:postgresql://$host:$port/$database"
-
-echo $url
+database=$(find_env "DB_DATABASE")   
+url="jdbc:postgresql://$(find_env "DB_HOST"):$(find_env "DB_PORT")/$(find_env "DB_DATABASE")"
 
 datasources="$(generate_datasource $jndi $username $password $driver $url)\n\n"
-
-echo $datasources
 
 C=$(echo $datasources | sed 's/\//\\\//g')
 sed -i "/<\/Context>/ s/.*/${C}\n&/" $JWS_HOME/conf/context.xml
 
-/usr/local/s2i/assemble
+exec $JWS_HOME/bin/launch.sh
