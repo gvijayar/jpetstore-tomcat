@@ -23,6 +23,8 @@ function generate_datasource(){
   echo " <Resource name=\"$1\"\nusername=\"$2\"\npassword=\"$3\"\ndriverClassName=\"$4\"\nurl=\"$5\"\nauth=\"Container\"\ntype=\"javax.sql.DataSource\"\nmaxActive=\"20\"\nmaxIdle=\"5\"\nmaxWait=\"10000\" />"          
 }
 
+printenv
+
 # Get Env Variables and Generate Config
 driver="org.postgresql.Driver"
 jndi=$(find_env "DB_JNDI")  
