@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo " **  Invoking Custom Assemble Script"
+echo " **  Invoking Custom Run Script"
 
 # Finds appropriate environment variable
 function find_env() {                                                           
@@ -40,11 +40,11 @@ echo $host
 port=$(find_env "DB_PORT") 
 echo $port
 
-url="jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_DATABASE"
+url="jdbc:postgresql://$host:$port/$database"
 
 echo $url
 
-datasources="$(generate_datasource $DB_JNDI $username $password $driver $url)\n\n"
+datasources="$(generate_datasource $jndi $username $password $driver $url)\n\n"
 
 echo $datasources
 
