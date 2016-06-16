@@ -38,11 +38,11 @@ echo $host
 port=$(find_env "DB_PORT") 
 echo $port
 
-url="jdbc:postgresql://$host:$port/$database"
+url="jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_DATABASE"
 
 echo $url
 
-datasources="$(generate_datasource $jndi $username $password $driver $url)\n\n"
+datasources="$(generate_datasource $DB_JNDI $username $password $driver $url)\n\n"
 
 echo $datasources
 
