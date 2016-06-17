@@ -9,7 +9,7 @@ This application has also been modified to work with an external RDBMS - at the 
 Please follow these steps to deploy this application on an OSE environment.
 
 1. Create a new OpenShift Project
-<ul>oc new-project jpetstore --description="jpetstore on jws 8" --display-name="JPetstore application deployed on a JWS/Tomcat image connecting to a remote database"</ul>
+<ul><pre>oc new-project jpetstore --description="jpetstore on jws 8" --display-name="JPetstore application deployed on a JWS/Tomcat image connecting to a remote database"</pre></ul>
 
 2. Now install the application template in the project namespace. This template includes the environment specific database connection details which will be collected at runtime and subsequently used to build the runtime configuration.
 <ul>oc create -f https://raw.githubusercontent.com/gvijayar/jpetstore-tomcat/master/jpetstore-ose3-externaldb.json</ul>
