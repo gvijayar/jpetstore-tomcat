@@ -224,7 +224,33 @@
                             "kind": "ImageStreamTag",
                             "namespace": "${IMAGE_STREAM_NAMESPACE}",
                             "name": "jboss-webserver30-tomcat8-openshift:1.2"
-                        }
+                        },
+                        "env": [
+                                {
+                                    "name": "DB_JNDI",
+                                    "value": "${DB_JNDI}"
+                                },
+                                {
+                                    "name": "DB_HOST",
+                                    "value": "${DB_HOST}"
+                                },  
+                                {
+                                    "name": "DB_PORT",
+                                    "value": "${DB_PORT}"
+                                },                                    
+                                {
+                                    "name": "DB_USERNAME",
+                                    "value": "${DB_USERNAME}"
+                                },
+                                {
+                                    "name": "DB_PASSWORD",
+                                    "value": "${DB_PASSWORD}"
+                                },
+                                {
+                                    "name": "DB_DATABASE",
+                                    "value": "${DB_DATABASE}"
+                                }
+                        ]
                     }
                 },
                 "output": {
@@ -328,30 +354,6 @@
                                     }
                                 ],
                                 "env": [
-                                    {
-                                        "name": "DB_JNDI",
-                                        "value": "${DB_JNDI}"
-                                    },
-                                    {
-                                        "name": "DB_HOST",
-                                        "value": "${DB_HOST}"
-                                    },  
-                                    {
-                                        "name": "DB_PORT",
-                                        "value": "${DB_PORT}"
-                                    },                                    
-                                    {
-                                        "name": "DB_USERNAME",
-                                        "value": "${DB_USERNAME}"
-                                    },
-                                    {
-                                        "name": "DB_PASSWORD",
-                                        "value": "${DB_PASSWORD}"
-                                    },
-                                    {
-                                        "name": "DB_DATABASE",
-                                        "value": "${DB_DATABASE}"
-                                    },
                                     {
                                         "name": "DB_MIN_POOL_SIZE",
                                         "value": "${DB_MIN_POOL_SIZE}"
