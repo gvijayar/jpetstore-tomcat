@@ -225,6 +225,7 @@
                             "namespace": "${IMAGE_STREAM_NAMESPACE}",
                             "name": "jboss-webserver30-tomcat8-openshift:1.2"
                         },
+                        "incremental": true,
                         "env": [
                                 {
                                     "name": "DB_JNDI",
